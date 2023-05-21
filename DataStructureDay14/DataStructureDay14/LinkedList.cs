@@ -69,32 +69,8 @@ namespace DataStructureDay14
             newestNode.next = previous.next;
             previous.next = newestNode;
         }
-        public void RemoveFirstNode()
-        {
-            if (this.head == null)
-            {
-                Console.WriteLine("Linked List is empty");
-            }
-            this.head = this.head.next;
-        }
-        public void RemoveLastNode()
-        {
-            if (head == null)
-            {
-                Console.WriteLine("Linked List is empty");
-            }
-            if (head.next == null)
-            {
-                this.head = null;
-            }
-            Node NewNode = head;
-            while (NewNode.next.next != null)
-            {
-                NewNode = NewNode.next;
-            }
-            NewNode.next = null;
-        }
-        public void Search(int value)
+
+        public int Search(int value)
         {
             Node node = this.head;
             int count = 0;
@@ -107,7 +83,31 @@ namespace DataStructureDay14
                 node = node.next;
                 count++;
             }
+            return count;
         }
-
+        public void DeleteNodeAtParticularPosition(int position)
+        {
+            if (this.head == null)
+            {
+                Console.WriteLine("Linked List is empty");
+                return;
+            }
+            Node temp = this.head;
+            if (position == 0)
+            {
+                this.head = temp.next;
+                return;
+            }
+            for (int i = 0; temp != null && i < position - 1; i++)
+            {
+                temp = temp.next;
+            }
+            if (temp == null)
+            {
+                return;
+            }
+            Node next = temp.next.next;
+            temp.next = next;
+        }
     }
 }
