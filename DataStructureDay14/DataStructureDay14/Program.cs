@@ -4,12 +4,15 @@ public class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Welcome to Data Structures");
+          Console.WriteLine("Welcome to Data Structures");
 
-        Stack stack = new Stack();
-        stack.Push(70);
-        stack.Push(30);
-        stack.Push(56);
-        stack.Display();
+            LinkedList list = new LinkedList();
+
+            list.Add(56);
+            
+            list.Add(70);
+
+            list.InsertAtParticularPosition(1, 30);
+            list.Display();
     }
 }
